@@ -7,9 +7,7 @@
   <meta name="theme-color" content="#070b18" />
   <meta name="color-scheme" content="dark light" />
 
-  <!-- =========================================================
-       BASE UI (page) — Apple-ish, premium, long-form
-       ========================================================= -->
+
   <style>
     :root{
       --bg0:#050816;
@@ -67,7 +65,7 @@
     }
     a{ color: inherit; }
 
-    /* Aurora background */
+  
     .aurora{
       position:fixed;
       inset:-35%;
@@ -111,7 +109,7 @@
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.8'/%3E%3C/svg%3E");
     }
 
-    /* Cursor glow */
+  
     .glow{
       position:fixed;
       width:780px;
@@ -133,14 +131,14 @@
       .glow{ display:none !important; }
     }
 
-    /* Layout */
+  
     .wrap{
       max-width: var(--max);
       margin:0 auto;
       padding: calc(72px + var(--safeTop)) 24px calc(160px + var(--safeBottom));
     }
 
-    /* Sticky topbar */
+   
     .topbarSticky{
       position: sticky;
       top: 0;
@@ -269,7 +267,7 @@
       letter-spacing: .02em;
     }
 
-    /* Cards */
+   
     .card{
       border-radius: var(--radius);
       background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.06));
@@ -290,7 +288,7 @@
       pointer-events:none;
     }
 
-    /* Hero */
+  
     .hero{
       display:grid;
       grid-template-columns: 1.25fr .75fr;
@@ -361,7 +359,7 @@
       line-height: 1.5;
     }
 
-    /* Right card */
+  
     .heroSide{ padding: 18px; box-shadow: var(--shadow2); }
     .miniGrid{
       display:grid;
@@ -391,7 +389,7 @@
       line-height: 1.55;
     }
 
-    /* Agent switcher */
+   
     .switcher{ margin-top: 18px; display:flex; justify-content:flex-start; }
 
     .tabs{
@@ -480,7 +478,7 @@
       color: rgba(0,0,0,.56);
     }
 
-    /* Agent panel */
+  
     .panel{ margin-top: 18px; padding: 20px; }
     .panel::before{
       content:"";
@@ -527,7 +525,7 @@
       z-index:1;
     }
 
-    /* Prompt chips (instant wow) */
+    
     .promptRow{
       margin-top: 14px;
       display:flex;
@@ -550,7 +548,7 @@
     }
     .prompt:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.24); }
 
-    /* Sections */
+   
     .section{ margin-top: 26px; padding: 24px; }
     .sectionHead{
       display:flex;
@@ -612,7 +610,7 @@
       flex: 0 0 auto;
     }
 
-    /* Social proof logos */
+  
     .logoStrip{
       position: relative;
       z-index: 1;
@@ -639,7 +637,7 @@
       padding: 0 10px;
     }
 
-    /* Comparison table */
+  
     .tableWrap{
       position: relative;
       z-index: 1;
@@ -678,7 +676,7 @@
       font-weight: 920;
     }
 
-    /* Timeline */
+    
     .steps{
       position: relative;
       z-index:1;
@@ -701,7 +699,7 @@
       margin-bottom: 10px;
     }
 
-    /* Testimonials */
+    
     .quote{
       display:flex;
       flex-direction: column;
@@ -731,7 +729,7 @@
       clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     }
 
-    /* FAQ */
+    
     .faq{
       position: relative;
       z-index:1;
@@ -776,7 +774,7 @@
     }
     details[open] .chev{ transform: rotate(180deg); opacity: 1; }
 
-    /* CTA + footer */
+   
     .cta{
       margin-top: 26px;
       padding: 24px;
@@ -826,7 +824,7 @@
     }
     .footerLinks a:hover{ color: rgba(255,255,255,.88); border-color: rgba(255,255,255,.35); }
 
-    /* Sticky bottom CTA bar (wow + conversion) */
+    
     .stickyCTA{
       position: fixed;
       left: 16px;
@@ -881,11 +879,11 @@
       font-weight: 900;
     }
 
-    /* Reveal animation */
+    
     .reveal{ opacity: 0; transform: translateY(12px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
     .reveal.on{ opacity: 1; transform: translateY(0); }
 
-    /* Mobile */
+  
     @media (max-width: 980px){
       .hero{ grid-template-columns: 1fr; }
       .actions{ justify-content: flex-start; }
@@ -916,9 +914,7 @@
     }
   </style>
 
-  <!-- =========================================================
-       Kontaktio WOW (Apple-style) — widget skin + POSITION FIX
-       ========================================================= -->
+  
   <style>
     :root {
       --k-accent: #2563eb;
@@ -930,10 +926,7 @@
       --k-muted: rgba(255, 255, 255, 0.7);
     }
 
-    /* ============ POSITION FIX (your screenshot) ============
-       Wymuszamy bottom-right, bo czasem widget potrafi wylądować bottom-left.
-       Używamy !important żeby przebić inline style lub starsze reguły.
-    */
+
     .kontaktio-launcher{
       right: 22px !important;
       left: auto !important;
@@ -945,7 +938,7 @@
     .kontaktio-widget{
       right: 22px !important;
       left: auto !important;
-      bottom: calc(96px + var(--safeBottom)) !important; /* nad launcherem */
+      bottom: calc(96px + var(--safeBottom)) !important; 
       top: auto !important;
       position: fixed !important;
       z-index: 999998 !important;
@@ -955,7 +948,7 @@
       .kontaktio-widget{ right: 14px !important; bottom: calc(88px + var(--safeBottom)) !important; }
     }
 
-    /* Launcher */
+    
     .kontaktio-launcher {
       width: 60px !important;
       height: 60px !important;
@@ -986,7 +979,7 @@
       font-size: 22px;
     }
 
-    /* Widget glass */
+    
     .kontaktio-widget {
       border-radius: 22px !important;
       border: 1px solid var(--k-border) !important;
@@ -1011,7 +1004,7 @@
       animation: kontaktioAurora 9s ease-in-out infinite;
     }
 
-    /* Header */
+    
     .kontaktio-header {
       background: linear-gradient(180deg, rgba(2,6,23,.55), rgba(2,6,23,.18)) !important;
       color: var(--k-text) !important;
@@ -1019,7 +1012,7 @@
     }
     .kontaktio-header-sub { color: var(--k-muted) !important; }
 
-    /* Messages */
+    
     .kontaktio-bubble {
       border-radius: 16px !important;
       font-size: 14.5px !important;
@@ -1039,7 +1032,7 @@
       border: 1px solid rgba(255,255,255,.10) !important;
     }
 
-    /* Input */
+    
     .kontaktio-inputwrap {
       background: linear-gradient(180deg, rgba(2,6,23,.12), rgba(2,6,23,.28)) !important;
       border-top: 1px solid rgba(255,255,255,.1) !important;
@@ -1056,7 +1049,7 @@
       border: 1px solid rgba(255,255,255,.18) !important;
     }
 
-    /* Optional: quick replies polish */
+    
     .kontaktio-quick button,
     .kontaktio-quick-replies button,
     .kontaktio-quick-reply {
@@ -1094,7 +1087,7 @@
   <div class="noise"></div>
   <div class="glow" id="glow"></div>
 
-  <!-- Sticky header -->
+  
   <div class="topbarSticky">
     <div class="topbar">
       <a class="brand" href="#top" aria-label="Kontaktio">
@@ -1190,7 +1183,7 @@
       </aside>
     </section>
 
-    <!-- AGENT PANEL + INSTANT PROMPTS -->
+    
     <section class="card panel reveal" data-reveal>
       <div class="panelTop">
         <div>
@@ -1217,7 +1210,7 @@
       <div class="divider"></div>
     </section>
 
-    <!-- SOCIAL PROOF (logos) -->
+    
     <section class="card section reveal" data-reveal>
       <div class="sectionHead">
         <div>
@@ -1236,7 +1229,7 @@
       </div>
     </section>
 
-    <!-- WHY IT "FEELS RIGHT" -->
+   
     <section class="card section reveal" data-reveal id="how">
       <div class="sectionHead">
         <div>
@@ -1305,7 +1298,7 @@
       </div>
     </section>
 
-    <!-- BENEFITS (expanded) -->
+    
     <section class="card section reveal" data-reveal>
       <div class="sectionHead">
         <div>
@@ -1342,7 +1335,7 @@
       </div>
     </section>
 
-    <!-- PROCESS -->
+   
     <section class="card section reveal" data-reveal>
       <div class="sectionHead">
         <div>
@@ -1370,7 +1363,7 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS (wow) -->
+   
     <section class="card section reveal" data-reveal>
       <div class="sectionHead">
         <div>
@@ -1398,7 +1391,7 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    
     <section class="card section reveal" data-reveal>
       <div class="sectionHead">
         <div>
@@ -1468,7 +1461,7 @@
       </div>
     </section>
 
-    <!-- CTA -->
+    
     <section class="card cta reveal" data-reveal id="contact">
       <div>
         <h2 data-i18n="cta.title">Chcesz wersję dla swojej firmy?</h2>
@@ -1491,7 +1484,7 @@
     </footer>
   </div>
 
-  <!-- Sticky bottom bar -->
+  
   <div class="stickyCTA" id="stickyCTA" aria-hidden="true">
     <div>
       <b data-i18n="sticky.title">Zróbmy demo pod Twoją firmę</b>
@@ -1506,11 +1499,11 @@
   </div>
 
   <script>
-    // ===== KONFIG (Twoje realne wartości) =====
+   
     const BACKEND_URL = "https://chatbot-backend-x2cy.onrender.com";
-    const SCRIPT_SRC = "https://cdn.jsdelivr.net/gh/kontaktio-demo/kontaktio@5d9beb0/kontaktio.js";
+    const SCRIPT_SRC = "https://cdn.jsdelivr.net/gh/kontaktio-demo/kontaktio@27625d5/kontaktio.js";
 
-    // ===== Copy & language content =====
+   
     const COPY = {
       pl: {
         "top.tagline": "Asystenci AI dla firm",
@@ -1763,21 +1756,21 @@
       }
     };
 
-    // ===== Agent meta per language =====
+    
     const AGENTS = {
       amico:   { pl: {title:"Amico",   descKey:"agent.amico"},   en: {title:"Amico",   descKey:"agent.amico"} },
       demo:    { pl: {title:"Demo",    descKey:"agent.demo"},    en: {title:"Demo",    descKey:"agent.demo"} },
       premium: { pl: {title:"Premium", descKey:"agent.premium"}, en: {title:"Premium", descKey:"agent.premium"} }
     };
 
-    // ===== WOW COLORS per agent (for widget skin) =====
+    
     const WOW = {
       amico:   { a1: "#10b981", a2: "#22d3ee" },
       demo:    { a1: "#2563eb", a2: "#7c3aed" },
       premium: { a1: "#f59e0b", a2: "#10b981" }
     };
 
-    // ===== Prompts per agent + language (bigger wow; people click, not think) =====
+   
     const PROMPTS = {
       pl: {
         amico: {
@@ -1785,7 +1778,7 @@
           price: "Jaki jest orientacyjny koszt i od czego zależy?",
           hours: "W jakich godzinach pracujecie i jak umówić kontakt?",
           contact: "Jak najszybciej mogę się skontaktować?",
-          next: "Poprowadź mnie krok po kroku: co mam przygotować?"
+          next: "Czy pracujecie na materiałach klienta?"
         },
         demo: {
           offer: "Co potrafi asystent i co może obsługiwać?",
@@ -1795,7 +1788,7 @@
           next: "Jak wygląda proces: od rozmowy do uruchomienia?"
         },
         premium: {
-          offer: "Opowiedz spokojnie: jak wygląda obsługa klienta przez asystenta?",
+          offer: "Jak wygląda obsługa klienta przez asystenta?",
           price: "Jakie są opcje wersji premium i co zawiera?",
           hours: "Jak dbacie o spójność odpowiedzi i brand?",
           contact: "Jak umówić krótką rozmowę i dostać demo?",
@@ -1808,7 +1801,7 @@
           price: "What’s the estimated price and what affects it?",
           hours: "What are your opening hours and how do I contact you?",
           contact: "What’s the fastest way to reach you?",
-          next: "Guide me step by step: what should I prepare?"
+          next: "Do you work with client materials?"
         },
         demo: {
           offer: "What can the assistant handle in real life?",
@@ -1818,7 +1811,7 @@
           next: "What’s the process from call to launch?"
         },
         premium: {
-          offer: "Explain calmly: how does premium customer experience work here?",
+          offer: "How does premium customer experience work here?",
           price: "What premium options exist and what’s included?",
           hours: "How do you keep brand tone consistent?",
           contact: "How can I book a short call and get a demo?",
@@ -1827,7 +1820,7 @@
       }
     };
 
-    // ===== State =====
+    
     let currentScript = null;
     let currentClientId = "amico";
     let lang = "pl";
@@ -1924,7 +1917,7 @@
       loadAgent(currentClientId);
     }
 
-    // ===== Prompt buttons => open widget + prefill (best effort) =====
+    
     function rebuildPromptButtons(){
       const row = $("promptRow");
       if (!row) return;
@@ -1937,8 +1930,7 @@
     }
 
     function tryPrefillAndSend(text){
-      // best-effort: jeśli widget udostępnia input jako .kontaktio-input
-      // (jeżeli nie, to samo otwarcie + użytkownik ma tekst w schowku)
+   
       const input = document.querySelector(".kontaktio-input");
       if (!input) {
         try { navigator.clipboard.writeText(text); } catch {}
@@ -1952,13 +1944,12 @@
       if (send) send.click();
     }
 
-    // ===== Keyboard: Cmd/Ctrl + K -> jump to demo =====
+    
     function jumpToDemo(){
       document.querySelector("#demo")?.scrollIntoView({ behavior: "smooth", block: "start" });
       setTimeout(() => openAssistant(), 520);
     }
 
-    // ===== Reveal =====
     (function reveal(){
       const items = Array.from(document.querySelectorAll("[data-reveal]"));
       if (!items.length) return;
@@ -1968,7 +1959,7 @@
       items.forEach(el => io.observe(el));
     })();
 
-    // ===== Cursor glow =====
+    
     (function initGlow(){
       const glow = $("glow");
       if (!glow) return;
@@ -1988,7 +1979,7 @@
       window.addEventListener("mousemove", onMove, { passive: true });
     })();
 
-    // ===== Sticky CTA (shows after scrolling) =====
+    
     (function sticky(){
       const bar = $("stickyCTA");
       const close = $("stickyClose");
@@ -2012,7 +2003,7 @@
       });
     })();
 
-    // ===== Wire UI =====
+    
     $("btnClear").addEventListener("click", () => {
       clearHistoryFor(currentClientId);
       loadAgent(currentClientId);
@@ -2033,7 +2024,7 @@
 
     $("btnJumpDemo").addEventListener("click", jumpToDemo);
 
-    // Prompt click => open + send
+   
     $("promptRow").addEventListener("click", (e) => {
       const btn = e.target.closest("[data-prompt]");
       if (!btn) return;
@@ -2042,22 +2033,22 @@
       const dict = (PROMPTS[lang] && PROMPTS[lang][currentClientId]) ? PROMPTS[lang][currentClientId] : PROMPTS.pl.amico;
       const text = dict[key] || btn.textContent;
 
-      // open assistant first (reboot)
+    
       openAssistant();
 
-      // try prefill after a moment (widget needs time to mount)
+      
       setTimeout(() => tryPrefillAndSend(text), 700);
     });
 
-    // Language
+    
     $("langPL").addEventListener("click", () => setLang("pl"));
     $("langEN").addEventListener("click", () => setLang("en"));
 
-    // Tabs
+    
     document.querySelectorAll("#tabs button").forEach(btn => btn.addEventListener("click", () => setActiveButton(btn)));
     window.addEventListener("resize", movePillToActive, { passive: true });
 
-    // Keyboard shortcut
+   
     window.addEventListener("keydown", (e) => {
       const isMac = navigator.platform.toLowerCase().includes("mac");
       const combo = isMac ? e.metaKey : e.ctrlKey;
@@ -2067,10 +2058,10 @@
       }
     });
 
-    // Footer year
+  
     $("year").textContent = String(new Date().getFullYear());
 
-    // Init
+  
     setLang("pl");
     setAgentMeta("amico");
     applyWowThemeVars("amico");
@@ -2079,8 +2070,7 @@
     loadAgent("amico");
   </script>
 
-  <!-- Widget loader (dynamic switch replaces this, but first load happens via JS anyway)
-       Leaving it out to avoid double boot. -->
+
 </body>
 </html>
 
