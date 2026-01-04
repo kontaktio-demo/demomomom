@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Kontaktio — AI Assistants Showcase</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050816">
+<meta name="color-scheme" content="dark light">
+
+<style>
+
+/* =====================================================
+   GLOBAL RESET + CORE VARIABLES
+   ===================================================== */
+
+:root {
+  --bg-main: #050816;
+  --bg-soft: #070b1a;
+
+  --glass-strong: rgba(15, 23, 42, 0.72);
+  --glass-soft: rgba(2, 6, 23, 0.42);
+  --border-soft: rgba(255,255,255,.14);
+
+  --txt-main: rgba(255,255,255,.92);
+  --txt-muted: rgba(255,255,255,.68);
+
+  --radius-xl: 28px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+
+  --max-width: 1180px;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--txt-main);
+  background:
+    radial-gradient(1200px 800px at 20% 10%, #0b1640 0%, transparent 55%),
+    radial-gradient(1000px 700px at 80% 20%, #220b4a 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-main), var(--bg-soft));
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   AURORA + NOISE (WOW BACKGROUND)
+   ===================================================== */
+
+.aurora {
+  position: fixed;
+  inset: -40%;
+  z-index: -3;
+  filter: blur(120px);
+  background:
+    radial-gradient(35% 30% at 20% 20%, rgba(124,58,237,.45), transparent 60%),
+    radial-gradient(30% 30% at 80% 30%, rgba(37,99,235,.45), transparent 60%),
+    radial-gradient(30% 30% at 50% 80%, rgba(16,185,129,.35), transparent 60%);
+  animation: auroraMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes auroraMove {
+  from { transform: translate(-2%, -2%) scale(1); }
+  to   { transform: translate(2%, 2%) scale(1.08); }
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  opacity: .08;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* =====================================================
+   LAYOUT
+   ===================================================== */
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 72px 24px 120px;
+}
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 32px;
+}
+
+.card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
+  border: 1px solid var(--border-soft);
+  backdrop-filter: blur(22px) saturate(140%);
+  box-shadow: 0 28px 90px rgba(0,0,0,.45);
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background:
+    radial-gradient(600px 300px at 20% 10%, rgba(255,255,255,.12), transparent 60%),
+    radial-gradient(600px 300px at 80% 90%, rgba(124,58,237,.12), transparent 60%);
+  pointer-events: none;
+}
+
+.hero-main {
+  padding: 36px;
+}
+
+.hero-main h1 {
+  margin: 0 0 16px;
+  font-size: clamp(38px, 4.8vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.hero-main p {
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 62ch;
+  color: var(--txt-muted);
+}
+
+/* =====================================================
+   AGENT SWITCHER
+   ===================================================== */
+
+.switcher {
+  margin-top: 28px;
+}
+
+.tabs {
+  display: inline-flex;
+  position: relative;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid var(--border-soft);
+}
+
+.tabs button {
+  height: 48px;
+  min-width: 130px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,.65);
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.tabs button.active {
+  color: #020617;
+}
+
+.tabs .pill {
+  position: absolute;
+  inset: 8px auto 8px 8px;
+  width: 130px;
+  background: rgba(255,255,255,.92);
+  border-radius: 999px;
+  transition: transform .55s cubic-bezier(.2,.9,.2,1), width .55s;
+}
+
+/* =====================================================
+   AGENT EMBED SECTIONS — WOW ZONE
+   ===================================================== */
+
+.agent-stage {
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+/* ============================
+   AGENT: AMICO (FRIENDLY)
+   ============================ */
+
+.agent-amico {
+  --k-accent: #10b981;
+  --k-accent2: #22d3ee;
+}
+
+/* ============================
+   AGENT: DEMO (TECH)
+   ============================ */
+
+.agent-demo {
+  --k-accent: #2563eb;
+  --k-accent2: #7c3aed;
+}
+
+/* ============================
+   AGENT: PREMIUM (LUXURY)
+   ============================ */
+
+.agent-premium {
+  --k-accent: #f59e0b;
+  --k-accent2: #16a34a;
+}
+
+/* =====================================================
+   KONTAKTIO WIDGET WOW — SCOPED
+   ===================================================== */
+
+.agent-stage .kontaktio-launcher {
+  width: 62px !important;
+  height: 62px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, var(--k-accent), var(--k-accent2)) !important;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.45),
+    0 0 0 14px color-mix(in srgb, var(--k-accent) 40%, transparent) !important;
+}
+
+.agent-stage .kontaktio-widget {
+  border-radius: 24px !important;
+  background: var(--glass-strong) !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  box-shadow: 0 30px 100px rgba(0,0,0,.55) !important;
+}
+
+.agent-stage .kontaktio-row.user .kontaktio-bubble {
+  background: linear-gradient(135deg, var(--k-accent), var(--k-accent2)) !important;
+  color: #fff !important;
+}
+
+.agent-stage .kontaktio-row.bot .kontaktio-bubble {
+  background: rgba(255,255,255,.10) !important;
+  color: var(--txt-main) !important;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 980px) {
+  .hero { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="aurora"></div>
+<div class="noise"></div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="card hero-main">
+      <h1>AI asystenci, którzy naprawdę robią robotę.</h1>
+      <p>
+        Ten sam backend. Ta sama logika.  
+        Trzech agentów. Trzy zupełnie różne doświadczenia.  
+        Kliknij i zobacz różnicę.
+      </p>
+
+      <div class="switcher">
+        <div class="tabs" id="tabs">
+          <div class="pill" id="pill"></div>
+          <button class="active" data-client="amico">Amico</button>
+          <button data-client="demo">Demo</button>
+          <button data-client="premium">Premium</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card hero-main">
+      <p>
+        Każdy agent ma:
+        <br>– inny styl wizualny
+        <br>– inny vibe rozmowy
+        <br>– ten sam silnik pod spodem
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<!-- =====================================================
+     KONTAKTIO EMBEDS (TECHNICZNIE IDENTYCZNIE)
+     ===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/gh/kontaktio-demo/kontaktio@5d9beb0/kontaktio.js"
+  data-kontaktio
+  data-client="amico"
+  data-backend="https://chatbot-backend-x2cy.onrender.com">
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/kontaktio-demo/kontaktio@5d9beb0/kontaktio.js"
+  data-kontaktio
+  data-client="demo"
+  data-backend="https://chatbot-backend-x2cy.onrender.com">
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/kontaktio-demo/kontaktio@5d9beb0/kontaktio.js"
+  data-kontaktio
+  data-client="premium"
+  data-backend="https://chatbot-backend-x2cy.onrender.com">
+</script>
+
+<script>
+/* =====================================================
+   TECHNICZNIE TO SAMO CO WCZEŚNIEJ
+   ===================================================== */
+
+const pill = document.getElementById("pill");
+const tabs = document.querySelectorAll("#tabs button");
+
+function movePill(btn) {
+  const r = btn.getBoundingClientRect();
+  const p = btn.parentElement.getBoundingClientRect();
+  pill.style.width = r.width + "px";
+  pill.style.transform = `translateX(${r.left - p.left}px)`;
+}
+
+tabs.forEach(btn => {
+  btn.addEventListener("click", () => {
+    tabs.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    movePill(btn);
+    localStorage.setItem("kontaktio-active", btn.dataset.client);
+  });
+});
+
+movePill(document.querySelector("#tabs button.active"));
+</script>
+
+</body>
+</html>
